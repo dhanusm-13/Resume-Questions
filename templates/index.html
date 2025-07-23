@@ -1,0 +1,373 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>AI Resume Analyzer & Interview Generator</title>-->
+<!--    <link rel="stylesheet" href="static/style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container">-->
+<!--        <div class="header">-->
+<!--            <h1>AI-Powered Resume Analyzer</h1>-->
+<!--            <p>Transform your job search with intelligent resume screening, personalized feedback, and custom interview questions powered by advanced AI and NLP technologies.</p>-->
+<!--        </div>-->
+
+<!--        <div class="feature-grid">-->
+<!--            <div class="feature-card">-->
+<!--                <div class="feature-icon">📄</div>-->
+<!--                <div class="feature-title">Smart Resume Analysis</div>-->
+<!--                <div class="feature-desc">Advanced NLP analyzes your resume for skills, experience, and qualifications</div>-->
+<!--            </div>-->
+<!--            <div class="feature-card">-->
+<!--                <div class="feature-icon">🎯</div>-->
+<!--                <div class="feature-title">Job Matching</div>-->
+<!--                <div class="feature-desc">Semantic matching to evaluate fit between your profile and job requirements</div>-->
+<!--            </div>-->
+<!--            <div class="feature-card">-->
+<!--                <div class="feature-icon">💡</div>-->
+<!--                <div class="feature-title">Resume Modification</div>-->
+<!--                <div class="feature-desc">Get actionable insights to optimize your resume for ATS systems</div>-->
+<!--            </div>-->
+<!--            <div class="feature-card">-->
+<!--                <div class="feature-icon">❓</div>-->
+<!--                <div class="feature-title">Interview Questions</div>-->
+<!--                <div class="feature-desc">AI-generated questions tailored to your experience and target role</div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="main-content">-->
+<!--            <div class="card">-->
+<!--                <h2>Upload Your Resume</h2>-->
+<!--                <div class="upload-area" id="uploadArea">-->
+<!--                    <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" />-->
+<!--                    <div class="upload-icon">📁</div>-->
+<!--                    <div class="upload-text">Drag & drop your resume here</div>-->
+<!--                    <div class="upload-subtext">or click to browse (PDF, DOC, DOCX)</div>-->
+<!--                </div>-->
+<!--                <div class="file-info" id="fileInfo">-->
+<!--                    <div class="file-name" id="fileName"></div>-->
+<!--                    <div class="file-size" id="fileSize"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Options Selection Card (initially hidden) &ndash;&gt;-->
+<!--            <div class="card" id="optionsCard" style="display: none;">-->
+<!--                <h2>Choose Your Service</h2>-->
+<!--                <div class="options-grid">-->
+<!--                    <div class="option-card" data-option="analysis">-->
+<!--                        <div class="option-icon">📊</div>-->
+<!--                        <div class="option-title">Resume Analysis</div>-->
+<!--                        <div class="option-desc">Comprehensive analysis of your resume with skills matching and feedback</div>-->
+<!--                    </div>-->
+<!--                    <div class="option-card" data-option="questions">-->
+<!--                        <div class="option-icon">❓</div>-->
+<!--                        <div class="option-title">Interview Questions</div>-->
+<!--                        <div class="option-desc">Generate personalized interview questions based on your Resume</div>-->
+<!--                    </div>-->
+<!--                    <div class="option-card" data-option="modification">-->
+<!--                        <div class="option-icon">✏️</div>-->
+<!--                        <div class="option-title">Resume Modification</div>-->
+<!--                        <div class="option-desc">Get suggestions to improve and optimize your resume</div>-->
+<!--                    </div>-->
+<!--                    <div class="option-card" data-option="matching">-->
+<!--                        <div class="option-icon">🎯</div>-->
+<!--                        <div class="option-title">Job Matching</div>-->
+<!--                        <div class="option-desc">Compare your resume against specific job descriptions</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Job Description Card (initially hidden) &ndash;&gt;-->
+<!--            <div class="card" id="jobDescCard" style="display: none;">-->
+<!--                <h2>Job Description</h2>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="jobTitle">Job Title</label>-->
+<!--                    <input type="text" id="jobTitle" placeholder="e.g., Software Engineer, Data Scientist">-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="jobDescription">Job Description</label>-->
+<!--                    <textarea id="jobDescription" placeholder="Paste the complete job description here..."></textarea>-->
+<!--                </div>-->
+<!--                <button class="btn" id="analyzeBtn" onclick="processRequest()">-->
+<!--                    <span id="btnText">🚀 Process Request</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="loading" id="loading">-->
+<!--            <div class="spinner"></div>-->
+<!--            <p id="loadingText">Processing your request...</p>-->
+<!--            <small>This may take a few moments</small>-->
+<!--        </div>-->
+
+<!--        <div class="results" id="results">-->
+<!--            <h2 id="resultsTitle">📊 Results</h2>-->
+
+
+
+<!--            &lt;!&ndash; Analysis Results &ndash;&gt;-->
+<!--            <div id="analysisResults" style="display: none;">-->
+<!--                <div class="score-section">-->
+<!--                    <div class="score-card">-->
+<!--                        <div class="score-value" id="ResumeScore">&#45;&#45;</div>-->
+<!--                        <div class="score-label">Resume Score</div>-->
+<!--                    </div>-->
+<!--                    <div class="score-card">-->
+<!--                        <div class="score-value" id="skillsFound">&#45;&#45;</div>-->
+<!--                        <div class="score-label">Skills Identified</div>-->
+<!--                    </div>-->
+<!--                    <div class="score-card">-->
+<!--                        <div class="score-value" id="recommendation">&#45;&#45;</div>-->
+<!--                        <div class="score-label">Recommendation</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+<!--                <div class="feedback-section">-->
+<!--                    <h3>💡 Personalized Feedback</h3>-->
+<!--                    <div id="feedbackList"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Questions Results &ndash;&gt;-->
+<!--            <div id="questionsResults" style="display: none;">-->
+<!--                <div class="questions-section">-->
+<!--                    <h3>❓ Generated Interview Questions</h3>-->
+<!--                    <div id="questionsList"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Modification Results &ndash;&gt;-->
+<!--            <div id="modificationResults" style="display: none;">-->
+<!--                <div class="modification-section">-->
+<!--                    <h3>✏️ Resume Improvement Suggestions</h3>-->
+<!--                    <div id="modificationList"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Matching Results &ndash;&gt;-->
+<!--            <div id="matchingResults" style="display: none;">-->
+<!--                &lt;!&ndash;div class="score-section">-->
+<!--                    <div class="score-card">-->
+<!--                        <div class="score-value" id="resumeScoreMatch">&#45;&#45;</div>-->
+<!--                        <div class="score-label">Job Match</div>-->
+<!--                    </div>-->
+<!--                    <div class="score-card">-->
+<!--                        <div class="score-value" id="skillsFoundMatch">&#45;&#45;</div>-->
+<!--                        <div class="score-label">Skills Identified</div>-->
+<!--                    </div>-->
+<!--                    <div class="score-card">-->
+<!--                        <div class="score-value" id="recommendationMatch">&#45;&#45;</div>-->
+<!--                        <div class="score-label">Recommendation</div>-->
+<!--                    </div>-->
+<!--                </div&ndash;&gt;-->
+<!--                <div class="match-score-card" id="matchCard">-->
+<!--                  <h3>🔍 Job-Resume Match Score</h3>-->
+<!--                  <div class="circle-progress">-->
+<!--                    <svg viewBox="0 0 36 36">-->
+<!--                      <path class="bg" d="M18 2.0845-->
+<!--                        a 15.9155 15.9155 0 0 1 0 31.831-->
+<!--                        a 15.9155 15.9155 0 0 1 0 -31.831"/>-->
+<!--                      <path class="progress" id="progressPath"-->
+<!--                        stroke-dasharray="0, 100"-->
+<!--                        d="M18 2.0845-->
+<!--                          a 15.9155 15.9155 0 0 1 0 31.831-->
+<!--                          a 15.9155 15.9155 0 0 1 0 -31.831"/>-->
+<!--                      <text x="18" y="20.35" class="percentage" id="matchScoreText">0%</text>-->
+<!--                    </svg>-->
+<!--                  </div>-->
+<!--                </div>-->
+
+<!--                <div class="matching-section">-->
+<!--                    <h3>🎯 Job Matching Analysis</h3>-->
+<!--                    <div id="matchingList"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <button id="downloadPdfBtn" onclick="downloadPDF()" class="btn" style="display: none;">📄 Download PDF Report</button>-->
+
+
+<!--    <script src="static/script.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Resume Analyzer & Interview Generator</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><!--for client side pdf generation-->
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI-Powered Resume Analyzer</h1>
+            <p>Transform your job search with intelligent resume screening, personalized feedback, and custom interview questions powered by advanced AI and NLP technologies.</p>
+                        <button id="themeToggle" class="btn"></button>
+
+        </div>
+
+       <div class="feature-grid" id="featureGrid">
+          <div class="feature-card selected" data-option="analysis">
+            <div >Resume Analysis</div>
+          </div>
+          <div class="feature-card" data-option="matching">
+            <div >Job Matching</div>
+          </div>
+          <div class="feature-card" data-option="modification">
+            <div >Resume Modification</div>
+            </div>
+          <div class="feature-card" data-option="questions">
+            <div >Interview Questions</div>
+    </div>
+</div>
+<!-- <div class="instructions-box" id="featureInstructions"> -->
+    <div id="featureInstructions">
+      <strong>Instructions:</strong>
+      <ul id="featureInstructionContent">
+      </ul>
+    </div>
+</div>
+
+        <div class="main-content">
+            <!-- <div class="card"> -->
+                <h2>Upload Your Resume</h2>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" />
+                    <div class="upload-icon ">
+                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M40,12h-18l-4,-4h-10c-2.2,0 -4,1.8 -4,4v8h40v-4c0,-2.2 -1.8,-4 -4,-4z" fill="#909090"></path><path d="M40,12h-32c-2.2,0 -4,1.8 -4,4v20c0,2.2 1.8,4 4,4h32c2.2,0 4,-1.8 4,-4v-20c0,-2.2 -1.8,-4 -4,-4z" fill="#c0c0bf"></path></g></g>
+
+                    </svg>
+                    </div>
+                    <div class="upload-text">Drag & drop your resume here</div>
+                    <div class="upload-subtext">or click to browse (PDF, DOC, DOCX)</div>
+                </div>
+                <div class="file-info" id="fileInfo">
+                    <div class="file-name" id="fileName"></div>
+                    <div class="file-size" id="fileSize"></div>
+                </div>
+            </div>
+
+            <!-- Options Selection Card (initially hidden) -->
+            <div id="optionsCard" style="display: none;">
+            <!-- <h2>Choose Your Service</h2> -->
+                <div class="options-grid">
+                    <div class="option-card" data-option="analysis">
+                    <div class="option-title"> Analyze</div>
+                    </div>
+                    <div class="option-card" data-option="questions">
+                    <div class="option-title">Generate Questions</div>
+                    </div>
+                    <div class="option-card" data-option="modification">
+                    <div class="option-title"> Modification Suggestion</div>
+                    </div>
+                    <div class="option-card" data-option="matching">
+                    <div class="option-title"> Match with Job</div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Job Description Card (initially hidden) -->
+            <!-- <div class="card" id="jobDescCard" style="display: none;"> -->
+            <div id="jobDescCard">
+                <h2>Job Description</h2>
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" placeholder="e.g., Software Engineer, Data Scientist">
+                </div>
+                <div class="form-group">
+                    <label for="jobDescription">Job Description</label>
+                    <textarea id="jobDescription" placeholder="Paste the complete job description here..."></textarea>
+                </div>
+                <button class="btn" id="analyzeBtn" onclick="processRequest()">
+                    <span id="btnText"> Process Request</span>
+                </button>
+            </div>
+
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p id="loadingText">Processing your request...</p>
+            <small>This may take a few moments</small>
+        </div>
+
+        <section class="results" id="results">
+            <h2 id="resultsTitle">Results</h2>
+
+
+            <!-- Analysis Results -->
+            <div id="analysisResults" style="display: none;">
+                <div class="score-section">
+                    <div class="score-card">
+                        <div class="score-value" id="ResumeScore">--</div>
+                        <div class="score-label">Resume Score</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-value" id="skillsFound">--</div>
+                        <div class="score-label">Skills Identified</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-value" id="recommendation">--</div>
+                        <div class="score-label">Recommend</div>
+                    </div>
+                </div>
+
+
+                <div class="feedback-section">
+                    <h3>Personalized Feedback</h3>
+                    <div id="feedbackList"></div>
+                </div>
+            </div>
+
+            <!-- Questions Results -->
+            <div id="questionsResults" style="display: none;">
+                <div class="questions-section">
+                    <h3>Generated Interview Questions</h3>
+                    <div id="questionsList"></div>
+                </div>
+            </div>
+
+            <!-- Modification Results -->
+            <div id="modificationResults" style="display: none;">
+                <div class="modification-section">
+                    <h3> Resume Improvement Suggestions</h3>
+                    <div id="modificationList"></div>
+                </div>
+            </div>
+
+            <!-- Matching Results -->
+            <div id="matchingResults" style="display: none;">
+                <div class="match-score-card" id="matchCard">
+                  <h3>Job-Resume Match Score</h3>
+                  <div class="circle-progress">
+                    <svg viewBox="0 0 36 36">
+                      <path class="bg" d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      <path class="progress" id="progressPath"
+                        stroke-dasharray="0, 100"
+                        d="M18 2.0845
+                          a 15.9155 15.9155 0 0 1 0 31.831
+                          a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      <text x="18" y="20.35" class="percentage" id="matchScoreText">0%</text>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="matching-section">
+                    <h3>Job Matching Analysis</h3>
+                    <div id="matchingList"></div>
+                </div>
+            </div>
+            <button class="btn download-pdf-btn" id="downloadPdfBtn" style="display: flex;">Download PDF</button> <!--download button-->
+        </section>
+    </div>
+
+
+
+    <script src="static/script.js"></script>
+</body>
+</html>

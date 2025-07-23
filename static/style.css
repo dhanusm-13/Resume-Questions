@@ -1,0 +1,859 @@
+/* Define theme-specific custom properties */
+:root[data-theme="dark"] {
+    --background-color: #0d1117; /* Dark background */
+    --text-color: #f1f5f9; /* Light text */
+    --secondary-bg: #161b22; /* Dark card background */
+    --border-color: #2c2f38; /* Border color */
+    --muted-text: #94a3b8; /* Muted text */
+    --accent-color: #667eea; /* Accent color */
+    --light-text: rgb(228, 228, 228); /* Light text for titles */
+    --white: #ffffff; /* White text */
+    --light-gray: #efefef; /* Light gray */
+    --error-color: #ff4444; /* Error text */
+    --form-border: #5f5f5f; /* Form input border */
+    --form-focus-shadow: rgba(102, 126, 234, 0.1); /* Form focus shadow */
+    --spinner-border: #353535; /* Spinner border */
+    --spinner-top: #fbfbfb; /* Spinner top */
+    --results-bg: rgba(255, 255, 255, 0.95); /* Results background */
+    --option-card-bg: #151617; /* Option card background */
+    --option-card-border: #bababa; /* Option card border */
+    --file-info-bg: #e6fffa; /* File info background */
+    --file-info-border: #38d9a9; /* File info border */
+    --file-info-name: #065f46; /* File info name */
+    --file-info-size: #047857; /* File info size */
+   /*  --question-category: #764ba2; */ /* Question category */
+    --feedback-border: #d3cdcd; /* Feedback item border */
+    --question-border: ##d3cdcd; /* Question item border */
+    --modification-border: ##d3cdcd; /* Modification item border */
+    --matching-border: ##d3cdcd; /* Matching item border */
+    --accent-color-rgb: 102, 126, 234; /* RGB for accent color */
+}
+
+:root[data-theme="light"] {
+    --background-color: #ffffff; /* Light background */
+    --text-color: #333333; /* Dark text */
+    --secondary-bg: #f5f5f5; /* Light secondary background */
+    --border-color: #d1d5db; /* Light border */
+    --muted-text: #6b7280; /* Light muted text */
+    --accent-color: #007bff; /* Light theme blue */
+    --light-text: #4b5563; /* Light secondary text */
+    --white: #000000; /* Black text for light theme */
+    --light-gray: #6b7280; /* Light gray */
+    --error-color: #dc2626; /* Error text */
+    --form-border: #d1d5db; /* Form input border */
+    --form-focus-shadow: rgba(0, 123, 255, 0.1); /* Form focus shadow */
+    --spinner-border: #d1d5db; /* Spinner border */
+    --spinner-top: #333333; /* Spinner top */
+    --results-bg: rgba(0, 0, 0, 0.05); /* Results background */
+    --option-card-bg: #f5f5f5; /* Option card background */
+    --option-card-border: #d1d5db; /* Option card border */
+    --file-info-bg: #e6fffa; /* File info background */
+    --file-info-border: #38d9a9; /* File info border */
+    --file-info-name: #065f46; /* File info name */
+    --file-info-size: #047857; /* File info size */
+    /* --question-category: #764ba2; */ /* Question category */
+    --feedback-border: #414243; /* Feedback item border */
+    --question-border: #414243; /* Question item border */
+    --modification-border: #414243; /* Modification item border */
+    --matching-border: #414243; /* Matching item border */
+    --accent-color-rgb: 0, 123, 255; /* RGB for accent color */
+}
+
+/* Set global background color */
+* {
+    background-color: var(--background-color) !important;
+}
+
+/* Style the body with font and layout settings */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color) !important;
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Center and constrain container width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style the header with centered text and shadow */
+.header {
+    text-align: center;
+    background: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Style the main header title */
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+/* Style header description */
+.header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--muted-text);
+}
+
+#themeToggle{
+    width:20%;
+}
+/* Style feature grid layout */
+.feature-grid {
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin: 2rem 0;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Style individual feature cards as simple containers */
+.feature-card {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted-text) !important;
+}
+
+/* Remove hover effects for feature cards */
+.feature-card:hover {
+    color: var(--muted-text) !important;
+}
+
+/* Style selected feature card */
+.feature-card.selected {
+    color: var(--white) !important;
+}
+
+/* Style feature card icon */
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Style feature card title */
+.feature-title {
+    color: var(--light-text) !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Style feature card description */
+.feature-desc {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* Style feature instructions section */
+/* Style feature instructions as a simple container */
+#featureInstructions {
+    margin-left: 30px;
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    text-align: justify;
+}
+
+/* Style instructions box title */
+/* Style instructions box title */
+#featureInstructions-box strong {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--white);
+}
+
+/* Style instructions list */
+#featureInstructions ul {
+    padding-left: 1.25rem;
+    line-height: 1.75;
+}
+/* Style instruction list items */
+#featureInstructions ul li {
+    text-align: justify; /* Ensure list items are justified */
+}
+
+/* Style main content container */
+.main-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: dashed var(--border-color);
+    background-color: transparent;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+
+}
+
+/* Style card hover effects */
+.card:hover {
+    transform: none !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Style card heading with centered text */
+.card h2 {
+    color: var(--light-gray);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.upload-section h2 {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Style card heading icon */
+.card h2::before {
+    margin-right: 10px;
+    font-size: 1.3rem;
+}
+
+/* Style resume upload area */
+.upload-area {
+    margin-top: 20px;
+    border: 3px dashed var(--border-color);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Style upload area on hover and drag */
+.upload-area:hover, .upload-area.drag-over {
+    border-color: var(--text-color);
+    background: rgba(var(--accent-color-rgb), 0.05);
+}
+
+/* Style file input in upload area */
+.upload-area input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Style upload area icon */
+.upload-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* Style upload area text */
+.upload-text {
+    color: var(--muted-text);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Add spacing to upload section */
+.upload-section {
+    padding-bottom: 1.5rem;
+}
+
+/* Style upload subtext */
+.upload-subtext {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+}
+
+/* Style file info container */
+#fileInfo {
+    background-color: var(--background-color);
+    border-color: var(--white);
+    color: var(--text-color) !important;
+}
+
+/* Style file info text */
+.file-info,
+.file-info .file-name,
+.file-info .file-size {
+    color: var(--muted-text);
+}
+
+/* Style option card */
+.option-card {
+    display: none;
+    padding: 0.8rem;
+    margin-top: 5px;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    border-radius: .5rem;
+    background: var(--option-card-bg);
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid var(--option-card-border);
+    border-color: var(--option-card-border) !important;
+}
+
+/* Style options card container */
+#optionsCard {
+    margin: 2rem;
+    padding: 1%;
+    background: transparent !important;
+    box-shadow: none;
+    border: var(--white);
+    align-items: center;
+}
+
+/* Style option card title */
+.option-card .option-title {
+    font-size: 1.1rem;
+    color: var(--light-text);
+}
+
+/* Style options card heading */
+#optionsCard h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-align: center;
+}
+
+/* Style options grid layout */
+.options-grid {
+    display: block;
+    gap: 1rem;
+    border-color: var(--text-color);
+}
+
+/* Style selected option card */
+.option-card.selected {
+    background: transparent;
+    color: var(--text-color);
+    border-color: var(--option-card-border);
+    transform: translateY(-5px);
+}
+
+/* Style option title */
+.option-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--white);
+    align-items: center;
+}
+
+/* Style option description */
+.option-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/* Style job description card */
+#jobDescCard {
+    display: none;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 30px;
+    background-color: transparent;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+}
+
+/* Style form group layout */
+.form-group {
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 30px;
+}
+
+/* Style form group label */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--muted-text);
+}
+
+/* Style form input and textarea */
+.form-group input, .form-group textarea {
+    width: 100%;
+    color: var(--text-color);
+    padding: 12px 15px;
+    border: 2px solid var(--form-border);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Style form input and textarea on focus */
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--white);
+    box-shadow: 0 0 0 3px var(--form-focus-shadow);
+}
+
+/* Style textarea resizing */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Style buttons */
+.btn {
+    background: transparent;
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+/* Style download PDF button */
+.btn .download-pdf-btn {
+    background: transparent !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--white);
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 20%;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    justify-content: center !important;
+}
+
+
+/* Style button hover effect */
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Style disabled button */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Style loading indicator */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style loading spinner */
+.spinner {
+    border: 3px solid var(--spinner-border);
+    border-top: 3px solid var(--spinner-top);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+/* Define spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Style results container */
+.results {
+    display: none;
+    grid-column: 1 / -1;
+    background: var(--results-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Style results heading */
+.results h2 {
+    color: var(--light-gray);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Style score section layout */
+.score-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Style score card */
+.score-card {
+    background: transparent;
+    color: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Style score value */
+.score-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style score label */
+.score-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Style match score card */
+.match-score-card {
+    text-align: center;
+    margin: 20px auto;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style circular progress container */
+.circle-progress {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
+
+/* Style SVG for circular progress */
+.circle-progress svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+}
+
+/* Style background circle in progress bar */
+.circle-progress .bg {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 3.8;
+}
+
+/* Style progress circle */
+.circle-progress .progress {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease;
+}
+
+/* Style percentage text in progress bar */
+.circle-progress .percentage {
+    fill: var(--background-color);
+    font-size: 0.8em;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Style feedback, questions, modification, and matching sections */
+.feedback-section, .questions-section, .modification-section, .matching-section {
+    margin-bottom: 30px;
+}
+
+/* Style feedback, question, modification, and matching items */
+.feedback-item, .question-item, .modification-item, .matching-item {
+    background: var(--file-info-bg);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--feedback-border);
+}
+
+/* Style question item border */
+.question-item {
+    border-left-color: var(--question-border);
+}
+
+/* Style modification item border */
+.modification-item {
+    border-left-color: var(--modification-border);
+}
+
+/* Style matching item border */
+.matching-item {
+    border-left-color: var(--matching-border);
+}
+
+/* Style question category text */
+.question-category {
+    font-weight: 600;
+    color: var(--question-category);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Style file info container */
+.file-info {
+    display: none;
+    background: var(--file-info-bg);
+    border: 1px solid var(--file-info-border);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* Style visible file info */
+.file-info.show {
+    display: block;
+}
+
+/* Style file name text */
+.file-name {
+    font-weight: 600;
+    color: var(--file-info-name);
+}
+
+/* Style file size text */
+.file-size {
+    color: var(--file-info-size);
+    font-size: 0.9rem;
+}
+
+/* Style feature grid for larger screens */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* Style feature card for larger screens as simple containers */
+.feature-card {
+    background: var(--results-bg);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: none;
+}
+
+/* Style feature card hover effect for larger screens */
+.feature-card:hover {
+    transform: none;
+}
+
+/* Style feature card icon for larger screens */
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* Style feature card title for larger screens */
+.feature-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--muted-text);
+    margin-bottom: 10px;
+}
+
+/* Style feature card description for larger screens */
+.feature-desc {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+}
+
+/* Style layout for smaller screens */
+@media (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        width: 90%; /* Increased width to use more screen space */
+        height: auto;
+    }
+    .container {
+        max-width: 100%; /* Remove max-width constraint on mobile */
+        padding: 5%; /* Remove padding to eliminate gaps */
+        width: 90%; /* Ensure full width */
+        margin: 0; /* Remove margins for edge-to-edge */
+    }
+
+    /* Adjust main content for mobile */
+    .main-content {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    /* Adjust header title for mobile */
+    .header h1 {
+        font-size: 1.8rem; /* Reduced from 2rem for compactness */
+    }
+
+    /* Adjust theme toggle button width */
+    #themeToggle {
+        width: 40%; /* Reduced from 50% to save space */
+    }
+
+    /* Adjust feature grid for mobile */
+    .feature-grid {
+        gap: 10px; /* Reduced from 20px */
+        margin: 20px 0; /* Reduced from 40px */
+        padding: 0 0.5rem; /* Reduced padding from 1rem */
+    }
+
+    /* Adjust card padding for mobile */
+    .card {
+        padding: 15px; /* Reduced from 20px */
+    }
+
+    /* Adjust options grid for mobile */
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem; /* Reduced from 1rem */
+    }
+
+    /* Adjust option card margins */
+    .option-card {
+        margin: 1rem; /* Reduced from 2rem */
+        padding: 0.5rem; /* Reduced from 0.8rem */
+        justify-content: center;
+    }
+.feature-grid {
+        display: grid; /* Explicitly set to grid */
+        grid-template-columns: repeat(2, 1fr); /* Force 2 columns for 2x2 layout */
+        gap: 8px; /* Further reduced from 10px for compactness */
+        margin: 15px 0; /* Reduced from 20px */
+        padding:  0.5rem; /* Reduced padding from 1rem */
+    }
+
+    .feature-card {
+        padding: 20px;
+        font-size: .9rem;
+        text-align: center;
+        background: var(--results-bg);
+        border-radius: 10px;
+    }
+    /* Adjust feature instructions width for mobile */
+    #featureInstructions {
+        width: 108%; /* Increased to use more screen space */
+        margin: 1rem auto; /* Reduced from 2rem */
+        padding: 1rem; /* Reduced from 2rem */
+    }
+
+    /* Style feature instructions list for mobile */
+    #featureInstructions ul {
+        padding-left: 1rem;
+
+        line-height: 1.5; /* Reduced from 1.75 for tighter text */
+        text-align: justify;
+    }
+
+    /* Style feature instructions title for mobile */
+    #featureInstructions-box strong {
+        font-size: 1.1rem; /* Reduced from 1.25rem */
+        margin-bottom: 0.5rem; /* Reduced from 1rem */
+    }
+
+    /* Adjust upload area for mobile */
+    .upload-area {
+        padding: 10px;
+        border-width: 2px;
+        margin-top: 10px;
+    }
+
+    .upload-section {
+        padding-bottom: 1rem; /* Reduced from 1.5rem */
+    }
+    .upload-icon svg {
+        width: 90px;
+        height: 100px;
+        margin-bottom: 8px;
+    };
+
+    /* Reduce font size for upload text */
+    .upload-text {
+        font-size: 1rem; /* Reduced from 1.1rem */
+    }
+
+
+    /* Reduce font size for upload subtext */
+    .upload-subtext {
+        font-size: 0.8rem; /* Reduced from 0.9rem */
+    }
+
+
+    /* Adjust button padding */
+    .btn {
+        padding: 10px 20px; /* Reduced from 15px 30px */
+        font-size: 1rem; /* Reduced from 1.1rem */
+    }
+
+    /* Adjust download PDF button */
+    .btn .download-pdf-btn {
+        padding: 8px 16px; /* Reduced from 12px 24px */
+        font-size: 0.9rem; /* Reduced from 1rem */
+        width: 30%; /* Increased from 20% to balance compactness */
+    }
+    .feedback-item, .question-item, .modification-item, .matching-item{
+        width: 140%;
+        margin-top: 20px;
+        padding: 10px;
+        text-align: left;
+        margin-right: 0;
+        text-align: justify;
+
+    }
+    #question-section{
+        padding-bottom: 10px;
+    }
+    .results{
+        padding: 5;
+        width: 90%;
+        max-width: 100%;
+
+    }
+    .score-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 3fr));
+    gap: 20px;
+
+    }
+    .score-value{
+        font-size: 30px;
+        margin-left: 0%;
+    }
+    .score-label{
+        font-size: 15px;
+    }
+}
