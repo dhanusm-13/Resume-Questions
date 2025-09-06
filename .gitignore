@@ -33,5 +33,5 @@ Thumbs.db
 # --- CSV / datasets (if large or generated) ---
 *.csv
 
-# --- Other uploads or generated files ---
+# --- Local-only uploads (resumes, docs, PDFs) ---
 uploads/
