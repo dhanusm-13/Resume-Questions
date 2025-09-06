@@ -1,0 +1,54 @@
+{
+  "Project": [
+    "Can you walk me through your experience working on {project}?",
+    "What were the biggest challenges you faced while working on {project}?",
+    "How did you ensure {project} met its objectives and user requirements?",
+    "If you were to improve {project}, what changes would you make?",
+    "What role did you play in developing {project}?",
+    "How did you test the performance and reliability of {project}?",
+    "What tools or technologies did you use in {project} and why?",
+    "What was the outcome or impact of {project}?",
+    "How did you manage collaboration or teamwork during {project}?",
+    "What lessons did you learn from working on {project} that you would apply in the future?"
+  ],
+  "Education/Certification": [
+    "How did your studies at {education} prepare you for this role?",
+    "What was the most challenging aspect of your coursework at {education}?",
+    "Which skills from your {education} are most relevant to this position?",
+    "How did your experience at {education} shape your career goals?",
+    "What motivated you to pursue the {certification} certification?",
+    "How does your {certification} certification differentiate you from other candidates?",
+    "What resources did you find most helpful while preparing for the {certification} certification?",
+    "What advice would you give to someone preparing for the {certification} certification?",
+    "What extracurricular activities during your time at {education} helped build your professional skills?",
+    "Which subjects at {education} did you find most impactful and why?"
+  ],
+  "Technical": [
+  "Tell me about a time you applied {skill} to optimize a project.",
+  "What limitations did you face when working with {skill}?",
+  "How do you approach debugging when using {skill}?",
+  "In what type of project would you prefer {skill} over another technology?",
+    "Which programming languages do you feel strongest in, and why?",
+    "How do you usually debug issues in {skill}?",
+    "What best practices do you follow when working with {skill}?",
+    "Can you compare {skill} with another technology you’ve used?",
+    "What tools or frameworks do you regularly use alongside {skill}?",
+    "How would you optimize performance in a project involving {skill}?",
+    "What are the most common mistakes developers make when working with {skill}?",
+    "How do you ensure code quality and maintainability in {skill}?",
+    "What role does {skill} play in modern applications you’ve worked on?",
+    "How do you stay updated on the latest advancements in {skill}?"
+  ],
+  "General/Behavioral": [
+    "Tell me about a time you used {skill} to solve a challenging problem.",
+    "How do you handle situations where you are unfamiliar with a tool like {skill}?",
+    "Tell me about a situation where teamwork was essential to succeed.",
+    "What do you consider your biggest professional strength, and how have you applied it?",
+    "Can you share an example of when you had to quickly learn a new technology?",
+    "What motivates you to keep improving your technical and professional skills?",
+    "How do you approach solving problems under tight deadlines?",
+    "What is one accomplishment you are particularly proud of, and why?",
+    "How do you balance technical quality with meeting project deadlines?",
+    "Tell me about a time you faced a major challenge in {project} and how you overcame it."
+  ]
+}
