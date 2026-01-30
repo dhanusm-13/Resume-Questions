@@ -1,6 +1,5 @@
-You can fix the formatting in your GitHub README by using **Markdown tags**. When you paste raw text into GitHub, it often loses its structure because it lacks the necessary headers, bullet points, and code block markers.
-
-To make it look like a professional GitHub landing page (similar to your "HostelVision-AI" project), copy and use the code below.
+---
+**###Project Title **
 
 ---
 
@@ -53,7 +52,7 @@ Resume-Questions/
 
 ```
 
-*(Structure sourced from)*
+
 
 ---
 
@@ -76,7 +75,7 @@ python -m venv .venv
 
 ```
 
-*(Setup commands sourced from)*
+
 
 **2️⃣ Install Dependencies**
 
@@ -85,7 +84,7 @@ pip install -r requirements.txt
 
 ```
 
-*(Installation step sourced from)*
+
 
 **3️⃣ Run the Application**
 
@@ -94,7 +93,7 @@ python app.py
 
 ```
 
-*(Execution step sourced from)*
+
 
 ---
 
