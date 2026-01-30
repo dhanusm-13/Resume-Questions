@@ -1,15 +1,16 @@
----
+
 ### Project Title
+---
+
+# 🤖 AI-Powered Resume Screening & Interview Question Generator
+
+This is an intelligent system that analyzes resumes and automatically generates personalized interview questions. The project combines **Natural Language Processing (NLP)**, **Machine Learning**, and **Deep Learning** models to streamline the hiring process.
 
 ---
 
-### 🤖 AI-Powered Resume Screening & Interview Question Generator
+## 🚀 Key Features
 
-This is an intelligent system that analyzes resumes and automatically generates personalized interview questions. By combining **Natural Language Processing (NLP)**, **Machine Learning**, and **Deep Learning**, the project helps recruiters and job seekers streamline the hiring process through automated parsing and intelligent question synthesis.
 
----
-
-### 🚀 Key Features
 
 * 📂 **Resume Parsing** – Automatically extracts skills, education, projects, and certifications from uploads.
 * 🧠 **AI Question Generation** – Uses fine-tuned **T5** and **BERT** models to create role-specific interview questions.
@@ -19,7 +20,9 @@ This is an intelligent system that analyzes resumes and automatically generates 
 
 ---
 
-### 🛠 Tech Stack
+## 🛠 Tech Stack
+
+
 
 | Component | Technology |
 | --- | --- |
@@ -31,7 +34,9 @@ This is an intelligent system that analyzes resumes and automatically generates 
 
 ---
 
-### 📂 Project Structure
+## 📂 Project Structure
+
+
 
 ```text
 Resume-Questions/
@@ -45,37 +50,27 @@ Resume-Questions/
 ├── static/                     # CSS & JS files
 ├── templates/                  # HTML templates
 ├── models/                     # Pretrained / fine-tuned models
-│   ├── resume_bert_model/      # BERT model files
-│   └── t5_finetuned_questions/ # Fine-tuned T5 model files
 ├── requirements.txt            # Python dependencies
 └── default_questions.json      # Base questions
 
 ```
 
-
-
 ---
 
-### 🖥 System Requirements
+## 📌 Installation & Setup
 
-* **Python** 3.8 – 3.11.
-* **RAM:** 8 GB (Recommended for running Transformers models).
-* **Storage:** Sufficient space for downloading pre-trained models from Hugging Face.
 
----
-
-### 📌 Installation & Setup
 
 **1️⃣ Create Virtual Environment**
 
 ```bash
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/Mac: source .venv/bin/activate
+# Windows:
+      .venv\Scripts\activate
+# Linux/Mac:
+       source .venv/bin/activate
 
 ```
-
-
 
 **2️⃣ Install Dependencies**
 
@@ -84,8 +79,6 @@ pip install -r requirements.txt
 
 ```
 
-
-
 **3️⃣ Run the Application**
 
 ```bash
@@ -93,28 +86,31 @@ python app.py
 
 ```
 
-
-
 ---
 
-### 🧠 System Workflow
+## 🧠 System Workflow
+
+
 
 1. **Resume Upload:** User uploads a PDF or DOCX resume via the Flask web interface.
-2. **Information Extraction:** The **BERT-based parser** identifies key sections (Skills, Education, Experience).
-3. **Semantic Analysis:** **SBERT** matches extracted skills against job requirements or categories.
-4. **Question Synthesis:** The **Fine-tuned T5 model** processes the extracted text to generate tailored interview questions.
-5. **Output:** The system displays a comprehensive report, including the generated questions and an ATS compatibility score.
+2. **Information Extraction:** The **BERT-based parser** identifies key sections like Skills and Education.
+3. **Semantic Analysis:** **SBERT** matches extracted skills against job requirements.
+4. **Question Synthesis:** The **Fine-tuned T5 model** generates tailored interview questions.
+5. **Output:** The system displays a report with generated questions and an ATS compatibility score.
 
 ---
 
-### 👨‍💻 Developer
+## 👨‍💻 Developer
+
+
 
 * **Name:** Dhananjaya S M
 * **Project:** AI-Powered Resume Screening & Interview Question Generator
 
 ---
 
-### 📜 License
+## 📜 License
+
+
 
 This project is licensed under the **MIT License**.
-
